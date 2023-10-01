@@ -32,16 +32,13 @@ const Header = ({ lang, setLang, theme, setTheme, execute }: IHeader) => {
                     ))
                 }
                 </select>
-                <select id="theme-dropdown" value={theme.value}>
+                {/* <select id="theme-dropdown" value={theme.value}>
                 {
-                    // monacoThemes.((t: any) => (
-                    //     <option>{  }</option>
-                    // ))
                     Object.entries(monacoThemes)?.map(([k, v]: any) => (
                         <option key={`${k}-${v}`} onClick={() => setTheme({ name: k, value: v })}>{ v }</option>
                     ))
                 }
-                </select>
+                </select> */}
                 <button id="execute-btn" onClick={() => execute()}>Run</button>
             </div>
         </div>
