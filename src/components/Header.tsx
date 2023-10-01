@@ -26,13 +26,13 @@ const Header = ({ lang, setLang, theme, setTheme, execute }: IHeader) => {
         <div id="header">
             <h1>Online Code Editor</h1>
             <div id="header-button-group">
-                {/* <select id="language-dropdown" value={lang.name}>
+                <select id="language-dropdown" value={lang.name}>
                 {
                     languages && languages?.map((l: Language) => (
                         <option key={l.name} onClick={() => setLang(l)}>{ l?.name }</option>
                     ))
                 }
-                </select> */}
+                </select>
                 <select id="theme-dropdown" value={theme.value}>
                 {
                     Object.entries(monacoThemes)?.map(([k, v]: any) => (
