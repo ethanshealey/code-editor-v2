@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+$bg: #292D3E;
+$text: #CCCCCC;
+$font: 'Nunito Sans', sans-serif;
+
+html, body, main {
+    margin: 0;
+    padding: 0;
+    background-color: $bg;
+    height: 100vh;
+    width: 100vw;
+    font-family: $font;
+    position: fixed;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 5vh;
+    h1 {
+        font-family: $font;
+        color: $text;
+        font-weight: 1000;
+        padding-left: 25px;
+    }
+    #header-button-group {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-right: 25px;
+    }
+}
+
+#editor-pane {
+    flex-grow: 1;
+    height: 75vh;
+}
+
+#bottom-panes {
+    flex-grow: 2;
+    max-height: 20vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#drag-bar {
+    height: 10px;
+    width: 100%;
+    background-color: #1C1F2B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: row-resize;
+    padding: 2px;
+    span {
+        font-weight: 10;
+        font-size: 15px;
+        transform: rotate(90deg);
+        color: $text;
+    }
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+select, option, button {
+    cursor: pointer;
+}
+
+#language-dropdown, #theme-dropdown {
+    background-color: #1C1F2B;
+    outline: none;
+    border: none;
+    margin: 0 10px 0 0;
+    color: $text;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: $font;
+    font-weight: 700;
+}
+
+#execute-btn {
+    background-color: #626793;
+    outline: none;
+    border: none;
+    margin: 0 10px 0 0;
+    color: $text;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: $font;
+    font-weight: 700;
+    padding: 5px 15px 5px 15px;
+    transition: .25s;
+    &:hover {
+        opacity: 70%;
+    }
+}
+
+#tabs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    .tab-option {
+        margin: 0 10px 0 10px;
+        color: $text;
+        font-weight: 500;
+        padding: 1px;
+        border-bottom: 2.5px solid transparent;
+        cursor: pointer;
+        transition: .25s;
+        opacity: 50%;
+        &:hover {
+            opacity: 75%;
+        }
+    }
+    .tab-option-selected {
+        border-bottom: 2.5px solid #626793;
+        opacity: 100% !important;
+    }
+}
+
+#output-pane, #input-pane {
+    margin: 5px 10px 10px 10px;
+    padding: 10px;
+    border-radius: 5px;
+    color: $text;
+    background-color: #1C1F2B;
+    display: flex;
+    flex-grow: 1;
+    overflow-y: scroll;
+    pre {
+        margin-top: -5px;
+        height: 100%;
+    }
+}
+
+.spinner {
+    border: 2.5px solid $text;
+    border-top: 2.5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
