@@ -1,4 +1,4 @@
-type Theme {
+type Theme = {
     name: string,
     value: string
 }
