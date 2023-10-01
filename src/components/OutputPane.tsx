@@ -13,10 +13,10 @@ const OutputPane = ({ output, isProcessing }: IOutputPane) => {
       {
         isProcessing ? (
           <Spinner size={"15px"} />
-        ) : output ? output.results.stdout ? (
-          <pre>{ decode(output.results.stdout) }</pre>
+        ) : output ? output.results.stderr ? (
+          <pre>{ decode(output.results.stderr) }</pre>
         ) : (
-          <pre style={{ color: '#f05c51' }}>{ decode(output.results.stderr) }</pre>
+          <pre style={{ color: '#f05c51' }}>{ decode(output.results.stdout) }</pre>
         ) : (
           <></>
         )
