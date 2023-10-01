@@ -14,9 +14,9 @@ const OutputPane = ({ output, isProcessing }: IOutputPane) => {
         isProcessing ? (
           <Spinner size={"15px"} />
         ) : output ? output.results.stderr ? (
-          <pre>{ decode(output.results.stderr) }</pre>
+          <pre style={{ color: '#f05c51' }}>{ decode(output.results.stderr) }</pre>
         ) : (
-          <pre style={{ color: '#f05c51' }}>{ decode(output.results.stdout) }</pre>
+          <pre>{ decode(output.results.stdout) }</pre>
         ) : (
           <></>
         )
