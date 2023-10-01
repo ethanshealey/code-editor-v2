@@ -1,4 +1,4 @@
-import { decode } from 'base-64';
+import { decode } from '@/helpers/utf8-base64'
 import Spinner from './Spinner';
 
 interface IOutputPane {
@@ -14,11 +14,12 @@ const OutputPane = ({ output, isProcessing }: IOutputPane) => {
         isProcessing ? (
           <Spinner size={"15px"} />
         ) : output ? output.results.stderr ? (
-          <pre style={{ color: '#f05c51' }}>{ decode(output.results.stderr) }</pre>
+          <pre style={{ color: '#f05c51' }}>{ decode(output.results.stderr ?? '') }</pre>
         ) : (
           <>
-            <pre>{ output.results.compile_results }</pre>
-            <pre>{ output.results.stdout }</pre>
+            <pre style={{ color: '#f05c51' }}>{ decode(output.results.compile_output ?? '') }</pre>
+            <pre>{ decode(output.results.message ?? '') }</pre>
+            <pre>{ decode(output.results.stdout ?? '') }</pre>
           </>
           
         ) : (

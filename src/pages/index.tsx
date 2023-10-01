@@ -9,7 +9,7 @@ import Language from '@/types/Language'
 import Theme from '@/types/Theme'
 import Tabs from '@/components/Tabs'
 import InputPane from '@/components/InputPane'
-import { encode } from 'base-64';
+import { encode } from '@/helpers/utf8-base64'
 
 export default function Home() {
 
@@ -42,9 +42,9 @@ export default function Home() {
     console.log(bCode, bStdin)
     fetch(`/api/execute?language_id=${language.id}&source_code=${bCode}&stdin=${bStdin}`).then((res) => res.json()).then((data) => {
       console.log(data)
-      if(data?.results?.message) 
-        setOutput({ results: { stderr: encode(data.results.message) }})
-      else setOutput(data)
+      // if(data?.results?.message) 
+      //   setOutput({ results: { stderr: encode(data.results.message) }})
+      setOutput(data)
       setIsProcessing(false)
     })
   }
@@ -55,6 +55,7 @@ export default function Home() {
         <title>Code Editor V2 | ethanshealey.com</title>
         <meta name="description" content="An online code compiler" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
       </Head>
       <main>
         <Header lang={language} setLang={onLanguageChange} theme={theme} setTheme={onThemeChange} execute={execute} />
