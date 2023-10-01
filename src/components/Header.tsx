@@ -27,7 +27,7 @@ const Header = ({ lang, setLang, theme, setTheme, execute }: IHeader) => {
             <div id="header-button-group">
                 <select id="language-dropdown" value={lang.name}>
                 {
-                    languages.map((l: Language) => (
+                    languages?.map((l: Language) => (
                         <option key={l.name} onClick={() => setLang(l)}>{ l?.name }</option>
                     ))
                 }
@@ -37,7 +37,7 @@ const Header = ({ lang, setLang, theme, setTheme, execute }: IHeader) => {
                     // monacoThemes.((t: any) => (
                     //     <option>{  }</option>
                     // ))
-                    Object.entries(monacoThemes).map(([k, v]: any) => (
+                    Object.entries(monacoThemes)?.map(([k, v]: any) => (
                         <option key={`${k}-${v}`} onClick={() => setTheme({ name: k, value: v })}>{ v }</option>
                     ))
                 }
