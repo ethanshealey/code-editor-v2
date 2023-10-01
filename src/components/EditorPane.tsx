@@ -13,10 +13,6 @@ interface IEditorPane  {
 
 const EditorPane = ({ code, setCode, theme, language }: IEditorPane) => {
 
-  const options = {
-    cursorStyle: "line"
-  }
-
   return (
     <div id="editor-pane">
         <Editor
@@ -26,7 +22,6 @@ const EditorPane = ({ code, setCode, theme, language }: IEditorPane) => {
             value={code}
             onChange={setCode}
             theme={theme.name}
-            options={options}
         />
     </div>
   )
