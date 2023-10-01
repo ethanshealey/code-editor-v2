@@ -37,7 +37,7 @@ const Header = ({ lang, setLang, theme, setTheme, execute }: IHeader) => {
                     // monacoThemes.((t: any) => (
                     //     <option>{  }</option>
                     // ))
-                    Object.entries(monacoThemes).map(([k, v]) => (
+                    Object.entries(monacoThemes).map(([k, v]: any) => (
                         <option key={`${k}-${v}`} onClick={() => setTheme({ name: k, value: v })}>{ v }</option>
                     ))
                 }
