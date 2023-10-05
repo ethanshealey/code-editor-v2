@@ -10,6 +10,7 @@ import Theme from '@/types/Theme'
 import Tabs from '@/components/Tabs'
 import InputPane from '@/components/InputPane'
 import { encode } from '@/helpers/utf8-base64'
+import HamburgerDropdown from '../components/HamburgerDropdown'
 
 export default function Home() {
 
@@ -59,6 +60,7 @@ export default function Home() {
       </Head>
       <main>
         <Header lang={language} setLang={onLanguageChange} theme={theme} setTheme={onThemeChange} execute={execute} />
+        <HamburgerDropdown lang={language} setLang={onLanguageChange} theme={theme} setTheme={onThemeChange} execute={execute} />
         <EditorPane code={code} setCode={setCode} theme={theme} language={language} />
         {/* <DragBar /> */}
         <div id="bottom-panes">

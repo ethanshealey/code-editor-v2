@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Language from '@/types/Language'
 import { monacoThemes } from '@/helpers/themes'
 import Theme from '@/types/Theme'
+import { RxHamburgerMenu } from 'react-icons/rx'
 
 interface IHeader {
     lang: Language,
@@ -14,6 +15,7 @@ interface IHeader {
 const Header = ({ lang, setLang, theme, setTheme, execute }: IHeader) => {
 
     const [ languages, setLanguages ] = useState<Language[]>([])
+    const [ showMobileDropdown, setShowMobileDropdown ] = useState(false)
 
     useEffect(() => {
         fetch('/api/languages').then((res) => res.json()).then((data) => {
@@ -21,6 +23,10 @@ const Header = ({ lang, setLang, theme, setTheme, execute }: IHeader) => {
             setLanguages(data.languages)
         })
     }, [])
+
+    useEffect(() => {
+        document.getElementById('hamburger-dropdown')!.style.marginTop = showMobileDropdown ? '5vh' : '0vh'
+    }, [showMobileDropdown])
 
     return (
         <div id="header">
@@ -41,6 +47,9 @@ const Header = ({ lang, setLang, theme, setTheme, execute }: IHeader) => {
                 }
                 </select>
                 <button id="execute-btn" onClick={() => execute()}>Run</button>
+            </div>
+            <div id="header-button-group-sm">
+                <RxHamburgerMenu onClick={() => setShowMobileDropdown(p => !p)} />
             </div>
         </div>
     )
