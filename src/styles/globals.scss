@@ -179,7 +179,7 @@ select, option, button {
 #hamburger-dropdown {
     transition: .5s;
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: row;
     padding: 5px;
     padding-right: 10px;
@@ -204,7 +204,7 @@ select, option, button {
     #header-button-group {
         display: none !important;
     }
-    #header-button-group-sm {
+    #header-button-group-sm, #hamburger-dropdown {
         display: flex !important;
     }
 }
