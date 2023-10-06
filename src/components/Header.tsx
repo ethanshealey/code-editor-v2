@@ -25,7 +25,7 @@ const Header = ({ lang, setLang, theme, setTheme, execute }: IHeader) => {
     }, [])
 
     useEffect(() => {
-        document.getElementById('hamburger-dropdown')!.style.marginTop = showMobileDropdown ? '5vh' : '0vh'
+        document.getElementById('hamburger-dropdown')!.style.marginTop = showMobileDropdown ? '5vh' : '-5vh'
     }, [showMobileDropdown])
 
     return (
