@@ -153,6 +153,14 @@ select, option, button {
     }
 }
 
+#output-pane {
+    display: flex;
+    flex-direction: column;
+    pre {
+        height: auto;
+    }
+}
+
 .spinner {
     border: 2.5px solid $text;
     border-top: 2.5px solid transparent;

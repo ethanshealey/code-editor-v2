@@ -267,7 +267,7 @@ const languageMapper = (l : Language) => {
             value: "dart"
         }
     ]
-    return mapper.filter((lang : Language) => l.id === lang.id)[0] ?. value
+    return mapper.filter((lang : Language) => l.id === lang.id)[0]?.value
 }
 
 export default languageMapper

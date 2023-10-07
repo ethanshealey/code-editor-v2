@@ -17,9 +17,9 @@ const OutputPane = ({ output, isProcessing }: IOutputPane) => {
           <pre style={{ color: '#f05c51' }}>{ decode(output.results.stderr ?? '') }</pre>
         ) : (
           <>
-            <pre style={{ color: '#f05c51' }}>{ decode(output.results.compile_output ?? '') }</pre>
-            <pre>{ decode(output.results.message ?? '') }</pre>
-            <pre>{ decode(output.results.stdout ?? '') }</pre>
+            { output.results.compile_output && <pre style={{ color: '#f05c51' }}>{ decode(output.results.compile_output ?? '') }</pre> }
+            { output.results.message && <pre>{ decode(output.results.message ?? '') }</pre> }
+            { output.results.stdout && <pre>{ decode(output.results.stdout ?? '') }</pre> }
           </>
           
         ) : (

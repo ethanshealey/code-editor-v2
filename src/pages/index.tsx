@@ -11,6 +11,7 @@ import Tabs from '@/components/Tabs'
 import InputPane from '@/components/InputPane'
 import { encode } from '@/helpers/utf8-base64'
 import HamburgerDropdown from '../components/HamburgerDropdown'
+import defaultEditorValues from '@/helpers/defaultEditorValues'
 
 export default function Home() {
 
@@ -33,6 +34,8 @@ export default function Home() {
 
   const onLanguageChange = (l: Language) => {
     setLanguage((_: any) => l)
+    if(!code?.length)
+      setCode(defaultEditorValues(l))
   }
 
   const execute = () => {
@@ -45,7 +48,11 @@ export default function Home() {
       console.log(data)
       // if(data?.results?.message) 
       //   setOutput({ results: { stderr: encode(data.results.message) }})
-      setOutput(data)
+      if(data.results.message.includes('You have exceeded the DAILY quota')) {
+        setOutput({ results: { stderr: encode(data.results.message) } })
+      }
+      else 
+        setOutput(data)
       setIsProcessing(false)
     })
   }
