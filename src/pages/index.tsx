@@ -48,7 +48,7 @@ export default function Home() {
       console.log(data)
       // if(data?.results?.message) 
       //   setOutput({ results: { stderr: encode(data.results.message) }})
-      if(data.results.message.includes('You have exceeded the DAILY quota')) {
+      if(data?.results?.message?.includes('You have exceeded the DAILY quota')) {
         setOutput({ results: { stderr: encode(data.results.message) } })
       }
       else 
